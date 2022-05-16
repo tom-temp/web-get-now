@@ -16,7 +16,7 @@ RUN curl -L -H "Cache-Control: no-cache" -o /tmp/v2ray/v2ray.zip https://github.
 
 WORKDIR /tmp/alist
 RUN curl -L -H "Cache-Control: no-cache" -o /tmp/alist/alist.tar.gz \
-    https://github.com/Xhofe/alist/releases/latest/download/alist-linux-amd64.tar.gz && \
+    https://github.com/Xhofe/alist/releases/latest/download/alist-linux-musl-amd64.tar.gz && \
     tar -xf /tmp/alist/alist.tar.gz -C /tmp/alist && \
     install -m 755 /tmp/alist/alist-linux-amd64 /usr/local/bin/alist && \
     rm -rf /tmp/alist && \

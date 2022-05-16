@@ -7,6 +7,34 @@
 # export PORT=1234
 config_path=$PROTOCOL"_ws_tls.json"
 envsubst '\$UUID,\$WS_PATH' < /$config_path > /usr/local/etc/v2ray/config.json
+
+cat >/usr/local/etc/alist/config.json <<EOF
+{
+  "assets": "/",
+  "database": {
+    "type": "$ADATABASE",
+    "user": "$BSQLUSER",
+    "password": "$CSQLPASSWORD",
+    "host": "$DSQLHOST",
+    "port": $ESQLPORT,
+    "name": "$FSQLNAME",
+    "table_prefix": "x_",
+    "db_file": "/alist/config/data.db"
+  },
+  "scheme": {
+    "https": false,
+    "cert_file": "",
+    "key_file": ""
+  },
+  "cache": {
+    "expiration": $GEXPIRATION,
+    "cleanup_interval": $HCLEANUP_INTERVAL
+  },
+  "temp_dir": "/alist/config/temp"
+}
+EOF
+
+
 # MK TEST FILES
 mkdir /opt/test
 cd /opt/test

@@ -7,8 +7,13 @@
 # export PORT=1234
 config_path=$PROTOCOL"_ws_tls.json"
 envsubst '\$UUID,\$WS_PATH' < /$config_path > /usr/local/etc/v2ray/config.json
-# Run cloudflare
-/cloudreve/cloudreve --c /cloudreve/conf.ini &
+# MK TEST FILES
+mkdir /opt/test
+cd /opt/test
+dd if=/dev/zero of=10mb.bin bs=10M count=1
+
+# Run alist
+/usr/local/bin/alist -conf /usr/local/etc/alist/config.json
 # Run V2Ray
 /usr/local/bin/v2ray -config /usr/local/etc/v2ray/config.json &
 # Run nginx

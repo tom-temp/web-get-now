@@ -1,8 +1,8 @@
-FROM cloudreve/cloudreve:latest
+FROM nginx:1.19.3-alpine
 ENV TZ=Asia/Shanghai
 # RUN echo 'nameserver 223.5.5.5'
 # RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
-RUN apk add --no-cache ca-certificates curl unzip nginx gettext # --virtual .build-deps 
+RUN apk add --no-cache ca-certificates curl unzip # --virtual .build-deps
 
 # v2ray
 # RUN rm -rf /tmp/v2ray
@@ -14,19 +14,20 @@ RUN curl -L -H "Cache-Control: no-cache" -o /tmp/v2ray/v2ray.zip https://github.
     rm -rf /tmp/v2ray && \
     install -d /usr/local/etc/v2ray
 
-# WORKDIR /tmp/zpan
-# RUN curl -L -H "Cache-Control: no-cache" -o /tmp/zpan/zpan.zip https://github.com/saltbo/zpan/releases/latest/download/zpan-linux-amd64.tar.gz && \
-#     tar -xf /tmp/zpan/zpan.zip -C /tmp/zpan && \
-#     install -m 755 /tmp/zpan/zpan-*/bin/zpan /usr/local/bin/zpan && \
-#     rm -rf /tmp/zpan && \
-#     install -d /usr/local/etc/zpan
-# 放弃zpan，无法在alpine中使用
+WORKDIR /tmp/alist
+RUN curl -L -H "Cache-Control: no-cache" -o /tmp/alist/alist.tar.gz \
+    https://github.com/Xhofe/alist/releases/latest/download/alist-linux-amd64.tar.gz && \
+    tar -xf /tmp/alist/alist.tar.gz -C /tmp/alist && \
+    install -m 755 /tmp/alist/alist-linux-amd64 /usr/local/bin/alist && \
+    rm -rf /tmp/alist && \
+    install -d /usr/local/etc/alist
+
+
+# 放弃zpan使用alist，无法在alpine中使用
 
 # nginx
 COPY nginx/default.conf.template /etc/nginx/conf.d/default.conf.template
 COPY nginx/nginx.conf /etc/nginx/nginx.conf
-COPY cloudever_config/conf.ini /cloudreve/conf.ini
-
 
 COPY configure.sh /configure.sh
 COPY v2ray_config /

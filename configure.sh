@@ -13,7 +13,7 @@ cd /opt/test
 dd if=/dev/zero of=10mb.bin bs=10M count=1
 
 # Run alist
-/usr/local/bin/alist -conf /usr/local/etc/alist/config.json
+/usr/local/bin/alist -conf /usr/local/etc/alist/config.json &
 # Run V2Ray
 /usr/local/bin/v2ray -config /usr/local/etc/v2ray/config.json &
 # Run nginx

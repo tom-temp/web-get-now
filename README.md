@@ -1,5 +1,7 @@
 ## v2ray-heroku
-[![](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/tom-temp/web-get-a.git)
+[![](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/tom-temp/web-get-now.git)
+
+> fork 自 **https://github.com/DaoChen6/Heroku-v2ray**
 
 ### heroku上部署v2ray
 - [x] 支持VMess和VLESS两种协议

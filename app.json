@@ -1,7 +1,9 @@
 {
-  "name": "web-Alist",
-  "description": "将Alist部署在Heroku上",
-  "keywords": ["Alist"],
+  "name": "web-geta",
+  "description": "将geta部署在Heroku上",
+  "keywords": [
+    "wget get"
+  ],
   "env": {
     "PROTOCOL": {
       "description": "小写的vme或vle",
@@ -51,8 +53,8 @@
       "value": "120"
     }
   },
-  "website": "https://gitlab.com/liu-wgeta/web-chrimical-wgeta",
-  "repository": "https://gitlab.com/liu-wgeta/web-chrimical-wgeta",
+  "website": "https://github.com/tom-temp/web-get-a",
+  "repository": "https://github.com/tom-temp/web-get-a",
   "stack": "container",
   "features": [
     "runtime-dyno-metadata"

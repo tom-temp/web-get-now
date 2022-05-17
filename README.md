@@ -12,11 +12,19 @@
 
 由于 Herok 免费账户无法永久保存应用数据，在没有使用正确的方法防止应用休眠情况下，Alist 会被重置。使用远程 MySQL 则可以解决这个问题。
 
+### 免费远程数据库01
+
 注册免费 MySQL 远程数据库：https://www.db4free.net/
 
 完成注册后，你的邮箱会收到MySQL 连接地址、端口、数据库名称、用户信息。
 
 > 说明来自 https://github.com/sbwml/alist-heroku 项目
+
+### 免费远程数据库02（推荐）
+
+网站地址 https://www.freemysqlhosting.net/
+
+只有5MB的空间可供使用，但对于alist足够，比db4free的连接速度好一些
 
 ### 环境变量说明
 

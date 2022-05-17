@@ -6,8 +6,15 @@
 - [x] 支持自定义websocket路径
 - [x] 伪装首页（alist）
 
+## 使用免费 MySQL 远程数据库（推荐）
 
+由于 Herok 免费账户无法永久保存应用数据，在没有使用正确的方法防止应用休眠情况下，Alist 会被重置。使用远程 MySQL 则可以解决这个问题。
 
+注册免费 MySQL 远程数据库：https://www.db4free.net/
+
+完成注册后，你的邮箱会收到MySQL 连接地址、端口、数据库名称、用户信息。
+
+> 说明来自 https://github.com/sbwml/alist-heroku 项目
 
 ### 环境变量说明
 
@@ -16,6 +23,9 @@
 |  PROTOCOL |  vmess<br>vless（可选） |  协议：nginx+vmess+ws+tls或是nginx+vless+ws+tls |
 |  UUID |  [uuid在线生成器](https://www.uuidgenerator.net "uuid在线生成器") | 用户主ID  |
 |  WS_PATH | 默认为`/ray` |  路径，请勿使用`/admin`，`/`，等已经被占用的请求路径 |
+
+
+
 
 ### 进阶
 heorku可以绑卡（应用一直在线，不扣费），绑定域名，套cf，[uptimerobot](https://uptimerobot.com/) 定时访问防止休眠（只监控CF Workers反代地址好了，不然几个账户一起监控没几天就把时间耗完了）
